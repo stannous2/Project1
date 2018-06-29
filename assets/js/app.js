@@ -15,6 +15,13 @@ $(document).on("click", "#submitButton", function(){
     event.preventDefault();
     let start = $("#start").val();
     let finish = $("#finish").val();
+    if(start == "" & finish == ""){
+        M.toast({
+            html: 'Please enter some values!'
+            
+        })
+        return 0;
+    }
     ref.set({
         start: start,
         finish: finish
@@ -79,5 +86,8 @@ $(document).ready(function(){
         let fn = snapshot.val().finish;
         initEverything(st, fn);
     });
+    M.toast({
+        html: 'Welcome back!'
+    })
 
 });
