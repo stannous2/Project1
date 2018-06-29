@@ -4,9 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hi Team</title>
+    <title>Travel Companion</title>
 </head>
 <body>
-    <p>Broke</p>
+
+<input type="text" id="location">
+
+<button type="submit" id="button">Submit</button>
+
+<div id="weather-data"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <script type="text/javascript">
+
+    // let lat = response.routes.legs.end_location.lat;
+    // let lon = response.routes.legs.end_location.lng;
+
+    let lat = 55.5;
+    let lon = 37.5;
+
+    $('#button').on("click", function() {
+        event.preventDefault();
+        let location = $('#location').val();
+        console.log(location);
+        let queryURL = "http://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+        .then(function(response) {
+
+        console.log(response);
+        let results = response;
+
+        let mainTemp = parseInt(Math.floor(results.list[0].main.temp*(9/5) - 459.67));
+        
+        let rain = results.list[0].rain;
+        let wind = results.list[0].wind.speed;
+        let cloud = results.list[0].clouds.all;
+        let snow = results.list[0].snow;
+
+
+        console.log(mainTemp);
+
+        console.log(parseInt(mainTemp));
+
+        console.log(mainTemp);
+
+        let weatherImg = "";
+        let additionalImg = "";
+
+        
+        if (mainTemp > 40 && mainTemp < 60 && cloud === 0) {
+            weatherImg = "./assets/images/sunny.png"
+            additionalImg = "./assets/images/cold.png" 
+        };
+
+        if (mainTemp > 40 && mainTemp < 65 && cloud > 0) {
+            weatherImg = "./assets/images/sunny.png"
+            additionalImg = "./assets/images/clouds.png" 
+        };
+        
+        if (mainTemp > 80 && cloud > 0) {
+            weatherImg = "./assets/images/sunny-clouds.png" 
+            additionalImg = "./assets/images/hot.png" 
+        };
+
+        if (mainTemp > 80 && cloud === 0) {
+            weatherImg = "./assets/images/sunny.png"
+        };
+
+        if (mainTemp > 40 && mainTemp < 65 && snow > 0) {
+            weatherImg = "./assets/images/sunny.png"
+            additionalImg = "./assets/images/snow.png" 
+        };
+        
+        
+        let highTemp = Math.floor(results.list[0].main.temp_max*(9/5) - 459.67);
+        let lowTemp = Math.floor(results.list[0].main.temp_min*(9/5) - 459.67);
+
+        console.log(results);
+
+        $('#weather-data').append(
+            `
+            <h2>Temperature: ${mainTemp} &#8457</h2>
+            <img src=${weatherImg}><img src=${additionalImg}>
+            <h2>Highs: ${highTemp} &#8457</h2>
+            <h2>Lows: ${lowTemp} &#8457</h2>
+            <h2>Pressure: ${results.list[0].main.pressure}mm</h2>
+            
+            
+            
+            `
+        )
+        
+ })
+
+
+
+})
+
+    
+</script>
 </body>
 </html>
