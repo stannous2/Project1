@@ -6,7 +6,7 @@ body{
 h1{
     text-align: center;
     color: #2660A1;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .weather-row{
@@ -16,7 +16,7 @@ h1{
 
 h5{
     text-align: center;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .arrow-icon{

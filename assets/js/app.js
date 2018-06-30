@@ -80,7 +80,7 @@ function initEverything(start, finish) {
             let lon = directions[0].end_location.lng;
             console.log(`Latitude: ${lat}, longitude: ${lon}`)
 
-                let queryURL2 = "http://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
+                let queryURL2 = "https://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
         
                 $.ajax({
                     url: queryURL2,
@@ -153,9 +153,9 @@ function initEverything(start, finish) {
                     <div><img src="${additionalImg}"height="100px" width="100px" style="width: auto;"></div>
                     </div>
                     </div>
-                    <h5>Temperature: ${mainTemp} &#8457</h5>
-                    <h5>Highs: ${highTemp} &#8457</h5>
-                    <h5>Lows: ${lowTemp} &#8457</h5>
+                    <h5>Temperature: ${mainTemp} °F</h5>
+                    <h5>Highs: ${highTemp} °F</h5>
+                    <h5>Lows: ${lowTemp} °F</h5>
                     <h5>Pressure: ${results.list[0].main.pressure}mm</h5>
                     </div>
                     
