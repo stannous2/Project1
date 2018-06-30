@@ -3,10 +3,12 @@ body{
     background-size: cover;
 }
 
-h1{
+#header{
     text-align: center;
     color: #2660A1;
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 50px;
+    margin: -5px;
 }
 
 .weather-row{
@@ -42,4 +44,11 @@ and (max-device-width : 812px){
         width: 25px;
         height: 25px;
     }
+
+    #header{
+        font-size: 35px;
+        margin-top: 10px;
+    }
+}
+
 }
