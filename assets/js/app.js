@@ -47,11 +47,7 @@ $(document).on("click", "#directionsHeader", function(){
 
 function initEverything(start, finish) {
         $("#mapDiv").empty();
-<<<<<<< HEAD
-        let newMap = $("<div>").addClass("card mapCard").html(
-=======
         let newMap = $("<div>").addClass("card mapCard z-depth-3").html(
->>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
             `<div class="card-image"><iframe frameborder = "0" height = "450px"style = "border:0; display:block; width:100%" src="https://www.google.com/maps/embed/v1/directions?origin=${start}&destination=${finish}&key=AIzaSyCU_10Ic1oE-JF170mFEgNs87rnjTRJbFE" allowfullscreen></iframe></div>
         `
         );
@@ -78,12 +74,6 @@ function initEverything(start, finish) {
                 $('#directionsList').append(listItem);
 
             });
-<<<<<<< HEAD
-
-        });
-    
-}
-=======
             console.log(directions);
             let lat = directions[0].end_location.lat;
             let lon = directions[0].end_location.lng;
@@ -174,7 +164,6 @@ function initEverything(start, finish) {
         })
         };
     
->>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
 $(document).ready(function(){
     ref.on("value", function (snapshot) {
                 console.log(snapshot.val());

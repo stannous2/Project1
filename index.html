@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
 
@@ -21,14 +22,14 @@
                 <div class="input-field col s5">
                     <input placeholder="Where are you starting from?" id="start" type="text" class="validate">
                 </div>
-                <div class=" col s1">
-                    <i class="medium material-icons prefix">forward</i>
+                <div class="col s1">
+                    <img src="./assets/images/arrow.png" class="arrow-icon">
                 </div>
                 <div class="input-field col s5">
                     <input placeholder="Where are you heading?" id="finish" type="text" class="validate">
                 </div>
                 <div class="col s1">
-                    <button class="btn waves-effect waves-light" id="submitButton" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-green #bdbdbd grey lighten-1" id="submitButton" type="submit" name="action">Submit
                     </button>
                 </div>
             </div>
@@ -36,118 +37,18 @@
 
         <div class="section" id="maps-weather">
             <div class="row">
-                <div class="col s6" id='mapDiv'>
+                <div class="col s8" id='mapDiv'>
 
                 </div>
-                <div class="col s6">
-<<<<<<< HEAD
-                    weather
-=======
+                <div class="col s4">
                     <div id="weather-data"></div>
->>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
                 </div>
             </div>
         </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="./assets/js/app.js"></script>
-<<<<<<< HEAD
-  
-  <script>
-    let lat = response.routes.legs.end_location.lat;
-    let lon = response.routes.legs.end_location.lng;
-
-//     let lat = 55.5;
-//     let lon = 37.5;
-
-    $('#button').on("click", function() {
-        event.preventDefault();
-        let location = $('#location').val();
-        console.log(location);
-        let queryURL = "http://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-        .then(function(response) {
-
-        console.log(response);
-        let results = response;
-
-        let mainTemp = parseInt(Math.floor(results.list[0].main.temp*(9/5) - 459.67));
-        
-        let rain = results.list[0].rain;
-        let wind = results.list[0].wind.speed;
-        let cloud = results.list[0].clouds.all;
-        let snow = results.list[0].snow;
-
-
-        console.log(mainTemp);
-
-        console.log(parseInt(mainTemp));
-
-        console.log(mainTemp);
-
-        let weatherImg = "";
-        let additionalImg = "";
-
-        
-        if (mainTemp > 40 && mainTemp < 60 && cloud === 0) {
-            weatherImg = "./assets/images/sunny.png"
-            additionalImg = "./assets/images/cold.png" 
-        };
-
-        if (mainTemp > 40 && mainTemp < 65 && cloud > 0) {
-            weatherImg = "./assets/images/sunny.png"
-            additionalImg = "./assets/images/clouds.png" 
-        };
-        
-        if (mainTemp > 80 && cloud > 0) {
-            weatherImg = "./assets/images/sunny-clouds.png" 
-            additionalImg = "./assets/images/hot.png" 
-        };
-
-        if (mainTemp > 80 && cloud === 0) {
-            weatherImg = "./assets/images/sunny.png"
-        };
-
-        if (mainTemp > 40 && mainTemp < 65 && snow > 0) {
-            weatherImg = "./assets/images/sunny.png"
-            additionalImg = "./assets/images/snow.png" 
-        };
-        
-        
-        let highTemp = Math.floor(results.list[0].main.temp_max*(9/5) - 459.67);
-        let lowTemp = Math.floor(results.list[0].main.temp_min*(9/5) - 459.67);
-
-        console.log(results);
-
-        $('#weather-data').append(
-            `
-            <h2>Temperature: ${mainTemp} &#8457</h2>
-            <img src=${weatherImg}><img src=${additionalImg}>
-            <h2>Highs: ${highTemp} &#8457</h2>
-            <h2>Lows: ${lowTemp} &#8457</h2>
-            <h2>Pressure: ${results.list[0].main.pressure}mm</h2>
-            
-            
-            
-            `
-        )
-        
- })
-
-
-
-})
-</script>
-
-=======
->>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
 </body>
-
 </html>
