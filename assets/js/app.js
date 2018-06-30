@@ -137,7 +137,11 @@ function initEverything(start, finish) {
                 let lowTemp = Math.floor(results.list[0].main.temp_min*(9/5) - 459.67);
         
                 console.log(results);
+
+                $('#weather-data').empty();
         
+
+
                 $('#weather-data').append(
                     `
                     <div class="card z-depth-3">
