@@ -29,7 +29,6 @@ $(document).on("click", "#submitButton", function(){
 
     console.log(`Start of route: ${start}, end of route: ${finish}`);
 
-
 });
 
 $(document).on("click", "#directionsHeader", function(){
@@ -112,26 +111,46 @@ function initEverything(start, finish) {
                 if (mainTemp > 40 && mainTemp < 60 && cloud === 0) {
                     weatherImg = "./assets/images/sunny.png"
                     additionalImg = "./assets/images/cold.png" 
-                };
+                }
+
+                else if (mainTemp > 65) {
+                    weatherImg = "./assets/images/sunny.png"
+                    additionalImg = "./assets/images/hot.png" 
+                }
+
+                else if (mainTemp > 65 && cloud === 0) {
+                    weatherImg = "./assets/images/sunny.png"
+                    additionalImg = "./assets/images/hot.png" 
+                }
+
+                else if (mainTemp > 65 && cloud > 0) {
+                    weatherImg = "./assets/images/rainy.png"
+                    additionalImg = "./assets/images/hot.png" 
+                }
+
+                else if (mainTemp > 65 && rain > 0) {
+                    weatherImg = "./assets/images/rainy.png"
+                    additionalImg = "./assets/images/hot.png" 
+                }
         
-                if (mainTemp > 40 && mainTemp < 65 && cloud > 0) {
+                else if (mainTemp > 40 && mainTemp < 65 && cloud > 0) {
                     weatherImg = "./assets/images/sunny.png"
                     additionalImg = "./assets/images/clouds.png" 
-                };
+                }
                 
-                if (mainTemp > 80 && cloud > 0) {
+                else if (mainTemp > 80 && cloud > 0) {
                     weatherImg = "./assets/images/sunny-clouds.png" 
                     additionalImg = "./assets/images/hot.png" 
-                };
+                }
         
-                if (mainTemp > 80 && cloud === 0) {
+                else if (mainTemp > 80 && cloud === 0) {
                     weatherImg = "./assets/images/sunny.png"
-                };
+                }
         
-                if (mainTemp > 40 && mainTemp < 65 && snow > 0) {
+                else if (mainTemp > 40 && mainTemp < 65 && snow > 0) {
                     weatherImg = "./assets/images/sunny.png"
                     additionalImg = "./assets/images/snow.png" 
-                };
+                }
                 
                 
                 let highTemp = Math.floor(results.list[0].main.temp_max*(9/5) - 459.67);
