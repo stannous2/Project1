@@ -28,7 +28,7 @@ $(document).on("click", "#submitButton", function(){
     });
 
     console.log(`Start of route: ${start}, end of route: ${finish}`);
-    initEverything(start, finish);
+
 
 });
 
@@ -47,6 +47,7 @@ $(document).on("click", "#directionsHeader", function(){
 
 function initEverything(start, finish) {
         $("#mapDiv").empty();
+        $("#weather-data").empty();
         let newMap = $("<div>").addClass("card mapCard z-depth-3").html(
             `<div class="card-image"><iframe frameborder = "0" height = "450px"style = "border:0; display:block; width:100%" src="https://www.google.com/maps/embed/v1/directions?origin=${start}&destination=${finish}&key=AIzaSyCU_10Ic1oE-JF170mFEgNs87rnjTRJbFE" allowfullscreen></iframe></div>
         `
