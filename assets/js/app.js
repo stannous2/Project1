@@ -179,10 +179,22 @@ function initEverything(start, finish) {
                     </div>
                     
                     `
-                )
+                );
+                let time = directions[0].duration.text;
+                let distance = directions[0].distance.text;
+                console.log(`How long to get there: ${time}, how long is the distance: ${distance}`)
+                $('#weather-data').append(
+                    `
+                    <div class="card z-depth-3" id="distanceText">
+                    <h5>Time to arrive: ${time}</h5>
+                    <h5>Distance to destination: ${distance}</h5>
+                    </div>
+                    
+                    `
+                );
                 
          })
-        
+         
         
         
         })
