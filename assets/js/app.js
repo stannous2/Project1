@@ -47,7 +47,11 @@ $(document).on("click", "#directionsHeader", function(){
 
 function initEverything(start, finish) {
         $("#mapDiv").empty();
+<<<<<<< HEAD
         let newMap = $("<div>").addClass("card mapCard").html(
+=======
+        let newMap = $("<div>").addClass("card mapCard z-depth-3").html(
+>>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
             `<div class="card-image"><iframe frameborder = "0" height = "450px"style = "border:0; display:block; width:100%" src="https://www.google.com/maps/embed/v1/directions?origin=${start}&destination=${finish}&key=AIzaSyCU_10Ic1oE-JF170mFEgNs87rnjTRJbFE" allowfullscreen></iframe></div>
         `
         );
@@ -74,10 +78,103 @@ function initEverything(start, finish) {
                 $('#directionsList').append(listItem);
 
             });
+<<<<<<< HEAD
 
         });
     
 }
+=======
+            console.log(directions);
+            let lat = directions[0].end_location.lat;
+            let lon = directions[0].end_location.lng;
+            console.log(`Latitude: ${lat}, longitude: ${lon}`)
+
+                let queryURL2 = "http://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
+        
+                $.ajax({
+                    url: queryURL2,
+                    method: "GET"
+                })
+                .then(function(response) {
+        
+                console.log(response);
+                let results = response;
+        
+                let mainTemp = parseInt(Math.floor(results.list[0].main.temp*(9/5) - 459.67));
+                
+                let rain = results.list[0].rain;
+                let wind = results.list[0].wind.speed;
+                let cloud = results.list[0].clouds.all;
+                let snow = results.list[0].snow;
+        
+        
+                console.log(mainTemp);
+        
+                console.log(parseInt(mainTemp));
+        
+                console.log(mainTemp);
+        
+                let weatherImg = "";
+                let additionalImg = "";
+        
+                
+                if (mainTemp > 40 && mainTemp < 60 && cloud === 0) {
+                    weatherImg = "./assets/images/sunny.png"
+                    additionalImg = "./assets/images/cold.png" 
+                };
+        
+                if (mainTemp > 40 && mainTemp < 65 && cloud > 0) {
+                    weatherImg = "./assets/images/sunny.png"
+                    additionalImg = "./assets/images/clouds.png" 
+                };
+                
+                if (mainTemp > 80 && cloud > 0) {
+                    weatherImg = "./assets/images/sunny-clouds.png" 
+                    additionalImg = "./assets/images/hot.png" 
+                };
+        
+                if (mainTemp > 80 && cloud === 0) {
+                    weatherImg = "./assets/images/sunny.png"
+                };
+        
+                if (mainTemp > 40 && mainTemp < 65 && snow > 0) {
+                    weatherImg = "./assets/images/sunny.png"
+                    additionalImg = "./assets/images/snow.png" 
+                };
+                
+                
+                let highTemp = Math.floor(results.list[0].main.temp_max*(9/5) - 459.67);
+                let lowTemp = Math.floor(results.list[0].main.temp_min*(9/5) - 459.67);
+        
+                console.log(results);
+        
+                $('#weather-data').append(
+                    `
+                    <div class="card z-depth-3">
+                    <div class="card-image">
+                    <div class="weather-row" style="background-color: 
+                    #2660A1">
+                    <div><img src="${weatherImg}" height="100px" width="100px" style="width: auto;"></div>
+                    <div><img src="${additionalImg}"height="100px" width="100px" style="width: auto;"></div>
+                    </div>
+                    </div>
+                    <h5>Temperature: ${mainTemp} &#8457</h5>
+                    <h5>Highs: ${highTemp} &#8457</h5>
+                    <h5>Lows: ${lowTemp} &#8457</h5>
+                    <h5>Pressure: ${results.list[0].main.pressure}mm</h5>
+                    </div>
+                    
+                    `
+                )
+                
+         })
+        
+        
+        
+        })
+        };
+    
+>>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
 $(document).ready(function(){
     ref.on("value", function (snapshot) {
                 console.log(snapshot.val());

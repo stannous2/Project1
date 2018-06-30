@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+=======
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css"
     />
+>>>>>>> b11e19baaf6a4a756197a6693c01f7460eb7a219
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -40,11 +44,7 @@
 
                 </div>
                 <div class="col s6">
-<<<<<<< HEAD
                     weather
-=======
-                    <div id="weather-data"></div>
->>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
                 </div>
             </div>
         </div>
@@ -54,7 +54,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="./assets/js/app.js"></script>
-<<<<<<< HEAD
   
   <script>
     let lat = response.routes.legs.end_location.lat;
@@ -146,8 +145,6 @@
 })
 </script>
 
-=======
->>>>>>> c13735a3b8b980ec822f072342bd9a3fe39eba82
 </body>
 
 </html>
