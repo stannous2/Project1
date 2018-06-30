@@ -28,7 +28,7 @@ $(document).on("click", "#submitButton", function(){
     });
 
     console.log(`Start of route: ${start}, end of route: ${finish}`);
-    initEverything(start, finish);
+
 
 });
 
@@ -47,6 +47,7 @@ $(document).on("click", "#directionsHeader", function(){
 
 function initEverything(start, finish) {
         $("#mapDiv").empty();
+        $("#weather-data").empty();
         let newMap = $("<div>").addClass("card mapCard z-depth-3").html(
             `<div class="card-image"><iframe frameborder = "0" height = "450px"style = "border:0; display:block; width:100%" src="https://www.google.com/maps/embed/v1/directions?origin=${start}&destination=${finish}&key=AIzaSyCU_10Ic1oE-JF170mFEgNs87rnjTRJbFE" allowfullscreen></iframe></div>
         `
@@ -79,7 +80,7 @@ function initEverything(start, finish) {
             let lon = directions[0].end_location.lng;
             console.log(`Latitude: ${lat}, longitude: ${lon}`)
 
-                let queryURL2 = "http://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
+                let queryURL2 = "https://api.openweathermap.org/data/2.5/find?&APPID=b06819dc1e78aaad6ffe9488eb5b61d9&lat=" + lat + "&lon=" + lon;
         
                 $.ajax({
                     url: queryURL2,
@@ -137,7 +138,11 @@ function initEverything(start, finish) {
                 let lowTemp = Math.floor(results.list[0].main.temp_min*(9/5) - 459.67);
         
                 console.log(results);
+
+                $('#weather-data').empty();
         
+
+
                 $('#weather-data').append(
                     `
                     <div class="card z-depth-3">
@@ -148,9 +153,9 @@ function initEverything(start, finish) {
                     <div><img src="${additionalImg}"height="100px" width="100px" style="width: auto;"></div>
                     </div>
                     </div>
-                    <h5>Temperature: ${mainTemp} &#8457</h5>
-                    <h5>Highs: ${highTemp} &#8457</h5>
-                    <h5>Lows: ${lowTemp} &#8457</h5>
+                    <h5>Temperature: ${mainTemp} °F</h5>
+                    <h5>Highs: ${highTemp} °F</h5>
+                    <h5>Lows: ${lowTemp} °F</h5>
                     <h5>Pressure: ${results.list[0].main.pressure}mm</h5>
                     </div>
                     
