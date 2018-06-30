@@ -25,6 +25,9 @@ h5{
     height: 55px;
     width: 55px;
 }
+#distanceText{
+    padding: 5px;
+}
 
 /* Media Queries */
 @media only screen 
@@ -46,4 +49,6 @@ and (max-device-width : 812px){
         font-size: 35px;
         margin-top: 10px;
     }
+}
+
 }
