@@ -36,6 +36,7 @@ $(document).on("click", "#directionsHeader", function(){
     if (state === "open") {
         $('.directionsDiv').addClass("scale-out");
         $(this).attr("data-state", "closed");
+        
     } else {
 
         $('.directionsDiv').removeClass("scale-out");
@@ -66,8 +67,8 @@ function initEverything(start, finish) {
             $('.mapCard').append(`<div class="card-content" id="directionsHeader" data-state="open"><i class="material-icons">place</i> Directions</div>`);
             let directionsDiv = $("<div>").addClass("card scale-transition directionsDiv");
             directionsDiv.html(`
-            <div class="card-content"><ul id="directionsList"></ul></div>`);
-            $('#mapDiv').append(directionsDiv);
+            <div class="card-content directionsDiv"><ul id="directionsList"></ul></div>`);
+            $('.directions').append(directionsDiv);
             steps.forEach(step => {
                 let listItem = $('<li>');
                 listItem.html(`In ${step.distance.text}, ${step.html_instructions}`);

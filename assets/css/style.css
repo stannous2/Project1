@@ -49,6 +49,12 @@ and (max-device-width : 812px){
         font-size: 35px;
         margin-top: 10px;
     }
-}
 
+    #mapDiv{
+        width: 100%;
+    }
+
+    #weather-data{
+        width: 100%;
+    }
 }
