@@ -29,6 +29,10 @@ h5{
     padding: 5px;
 }
 
+#submitButton:focus{
+    border: 2px solid black;
+}
+
 /* Media Queries */
 @media only screen 
 and (min-device-width : 375px) 
@@ -56,5 +60,11 @@ and (max-device-width : 812px){
 
     #weather-data{
         width: 100%;
+        display: -webkit-inline-box;
+        max-width: 50%;
+    }
+
+    #distanceText{
+        margin-left: 10px;
     }
 }
