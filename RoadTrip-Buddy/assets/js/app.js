@@ -1,15 +1,15 @@
-var config = {
-    apiKey: "AIzaSyCwj3nNjRTPn5PgTSa-rNyQzjCHSsekWDE",
-    authDomain: "zane-bootcamp.firebaseapp.com",
-    databaseURL: "https://zane-bootcamp.firebaseio.com",
-    projectId: "zane-bootcamp",
-    storageBucket: "zane-bootcamp.appspot.com",
-    messagingSenderId: "486463334849"
-};
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyCwj3nNjRTPn5PgTSa-rNyQzjCHSsekWDE",
+//     authDomain: "zane-bootcamp.firebaseapp.com",
+//     databaseURL: "https://zane-bootcamp.firebaseio.com",
+//     projectId: "zane-bootcamp",
+//     storageBucket: "zane-bootcamp.appspot.com",
+//     messagingSenderId: "486463334849"
+// };
+// firebase.initializeApp(config);
 
-const DATABASE = firebase.database();
-const ref = DATABASE.ref("travel");
+// const DATABASE = firebase.database();
+// const ref = DATABASE.ref("travel");
     
 $(document).on("click", "#submitButton", function(){
     event.preventDefault();
